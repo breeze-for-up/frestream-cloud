@@ -1,4 +1,4 @@
-package com.magic.cube;
+package com.magic.cube.system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
