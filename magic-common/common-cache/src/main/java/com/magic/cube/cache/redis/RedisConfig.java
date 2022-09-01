@@ -1,4 +1,4 @@
-package com.magic.cube.common.redis;
+package com.magic.cube.cache.redis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.magic.cube.common.pojo;
+package com.magic.cube.common.model;
 /**
  * @description: 简单枚举类实现
  * 

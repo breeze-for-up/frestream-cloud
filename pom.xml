@@ -6,7 +6,7 @@
 
     <groupId>com.magic.cube</groupId>
     <artifactId>magic-cube</artifactId>
-    <version>1.0.0</version>
+    <version>${project.version}</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -28,6 +28,9 @@
     <properties>
         <!-- 临时变量 -->
         <nacos.url>*</nacos.url>
+
+        <!-- 统一项目版本号 -->
+        <project.version>1.2.26</project.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -165,6 +168,31 @@
                     <skipTests>true</skipTests>
                 </configuration>
             </plugin>
+
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>flatten-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <updatePomFile>true</updatePomFile>-->
+<!--                    <flattenMode>resolveCiFriendliesOnly</flattenMode>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>flatten</id>-->
+<!--                        <phase>process-resources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>flatten</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>flatten.clean</id>-->
+<!--                        <phase>clean</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>clean</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 

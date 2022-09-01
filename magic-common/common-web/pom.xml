@@ -5,7 +5,8 @@
     <parent>
         <artifactId>magic-common</artifactId>
         <groupId>com.magic.cube</groupId>
-        <version>1.0.0</version>
+        <version>${project.version}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -23,11 +24,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <!-- 读取bootstrap.yml配置文件 -->
         <dependency>
@@ -103,6 +104,18 @@
         <dependency>
             <groupId>de.siegmar</groupId>
             <artifactId>logback-gelf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.magic.cube</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.magic.cube</groupId>
+            <artifactId>common-cache</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

@@ -1,4 +1,4 @@
-package com.magic.cube.common.pojo;
+package com.magic.cube.common.model;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;

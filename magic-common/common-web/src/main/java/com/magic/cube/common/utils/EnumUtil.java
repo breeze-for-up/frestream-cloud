@@ -1,6 +1,6 @@
 package com.magic.cube.common.utils;
 
-import com.magic.cube.common.pojo.IBaseEnum;
+import com.magic.cube.common.model.IBaseEnum;
 
 /**
  * @description: 枚举类基本方法

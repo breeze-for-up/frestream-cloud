@@ -1,4 +1,4 @@
-package com.magic.cube.common.pojo.logs;
+package com.magic.cube.common.model.logs;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

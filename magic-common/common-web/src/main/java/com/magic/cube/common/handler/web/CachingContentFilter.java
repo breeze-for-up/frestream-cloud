@@ -14,8 +14,6 @@ import java.io.IOException;
  **/
 public class CachingContentFilter implements Filter {
 
-    private static final String FORM_CONTENT_TYPE = "multipart/form-data";
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         Filter.super.init(filterConfig);
@@ -27,7 +25,7 @@ public class CachingContentFilter implements Filter {
         if (servletRequest instanceof HttpServletRequest) {
             String contentType = servletRequest.getContentType();
             // 表单类型数据不作包装, 否则上传文件时 MultipartFile 为null
-            if (contentType != null && contentType.contains(FORM_CONTENT_TYPE)) {
+            if (contentType != null && contentType.contains("multipart/form-data")) {
                 filterChain.doFilter(servletRequest, servletResponse);
             } else {
                 HttpServletRequest requestWrapper = new ContentCachingRequestWrapper((HttpServletRequest) servletRequest);

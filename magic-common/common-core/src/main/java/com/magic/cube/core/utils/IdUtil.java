@@ -66,11 +66,7 @@ public class IdUtil {
     static {
         // 初始化机器ID
         // 伪代码: 由你的配置文件获取节点ID
-        long workerId = 1L;
-        if (workerId < 0 || workerId > WORKER_ID_MAX) {
-            throw new IllegalArgumentException(String.format("cmallshop.workerId范围: 0 ~ %d 目前: %d", WORKER_ID_MAX, workerId));
-        }
-        WORKER_ID = workerId;
+        WORKER_ID = 1L;
     }
 
     private IdUtil() {

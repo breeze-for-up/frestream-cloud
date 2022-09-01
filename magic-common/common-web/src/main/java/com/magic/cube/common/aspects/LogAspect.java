@@ -1,7 +1,7 @@
 package com.magic.cube.common.aspects;
 
 import com.magic.cube.common.annotations.Log;
-import com.magic.cube.common.pojo.logs.LogDTO;
+import com.magic.cube.common.model.logs.LogDTO;
 import com.magic.cube.core.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -36,20 +36,19 @@ public class LogAspect {
     /**
      * 切点为使用 @Log 注解标注的方法
      */
-    @Pointcut("@annotation(com.fenglai.common.web.annotations.Log)")
+    @Pointcut("@annotation(com.magic.cube.common.annotations.Log)")
     public void pointcut() { }
 
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 
-        LogDTO logDTO = handlerLog(joinPoint);
+        LogDTO log = handleLog(joinPoint);
         long start = System.currentTimeMillis();
 
         Object proceed = joinPoint.proceed();
 
-        logDTO.setExecuteTime(System.currentTimeMillis() - start);
-        logDTO.setResult(JsonUtil.toJson(proceed));
-        log.info("common-log >>> {}", logDTO);
+        log.setExecuteTime(System.currentTimeMillis() - start)
+                .setResult(JsonUtil.toJson(proceed));
 
         return proceed;
     }
@@ -57,13 +56,11 @@ public class LogAspect {
     @AfterThrowing(value = "pointcut()", throwing = "ex")
     public void afterThrowingAdvice(JoinPoint joinPoint, Exception ex) {
 
-        LogDTO logDTO = handlerLog(joinPoint);
-        logDTO.setErrorMsg(ex.getMessage());
-
-        log.info("common-log >>> {}", logDTO);
+        LogDTO log = handleLog(joinPoint)
+                .setErrorMsg(ex.getMessage());
     }
 
-    private LogDTO handlerLog(JoinPoint joinPoint) {
+    private LogDTO handleLog(JoinPoint joinPoint) {
 
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
 

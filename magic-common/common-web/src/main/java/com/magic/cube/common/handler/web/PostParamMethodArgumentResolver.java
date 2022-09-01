@@ -40,10 +40,9 @@ public class PostParamMethodArgumentResolver implements HandlerMethodArgumentRes
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         HttpServletRequest servletRequest = webRequest.getNativeRequest(HttpServletRequest.class);
         if (servletRequest == null) {
-            log.warn("HttpServletRequest is null...");
+            log.warn("[servletRequest]参数解析异常: {}", parameter.getMethod().getName());
             return null;
         }
-
         checkRequest(servletRequest);
 
         // 获取请求body
@@ -58,7 +57,7 @@ public class PostParamMethodArgumentResolver implements HandlerMethodArgumentRes
         try {
             value = Convert.convert(parameter.getParameterType(), value);
         } catch (Exception e) {
-            throw new BizException("该参数类型不匹配: " + name);
+            throw new BizException("参数解析异常: " + name);
         }
         return value;
     }
@@ -67,11 +66,11 @@ public class PostParamMethodArgumentResolver implements HandlerMethodArgumentRes
 
         String contentType = servletRequest.getContentType();
         if (contentType == null || !contentType.contains("application/json")) {
-            throw new BizException("解析参数异常，contentType需为：application/json");
+            throw new BizException("参数解析异常，contentType必须为：application/json");
         }
 
         if (!"post".equalsIgnoreCase(servletRequest.getMethod())) {
-            throw new BizException("解析参数异常，请求类型必须为post");
+            throw new BizException("参数解析异常，请求类型必须为post");
         }
     }
 }

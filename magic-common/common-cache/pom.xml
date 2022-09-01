@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common-core</artifactId>
+    <artifactId>common-cache</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -19,15 +19,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>easyexcel</artifactId>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
     </dependencies>
 
