@@ -5,8 +5,7 @@
     <parent>
         <artifactId>magic-common</artifactId>
         <groupId>com.magic.cube</groupId>
-        <version>${project.version}</version>
-        <relativePath>../pom.xml</relativePath>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -109,13 +108,11 @@
         <dependency>
             <groupId>com.magic.cube</groupId>
             <artifactId>common-core</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.magic.cube</groupId>
             <artifactId>common-cache</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

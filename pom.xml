@@ -6,7 +6,7 @@
 
     <groupId>com.magic.cube</groupId>
     <artifactId>magic-cube</artifactId>
-    <version>${project.version}</version>
+    <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -29,28 +29,33 @@
         <!-- 临时变量 -->
         <nacos.url>*</nacos.url>
 
-        <!-- 统一项目版本号 -->
-        <project.version>1.2.26</project.version>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
 
+        <!-- cloud -->
         <spring-cloud.version>2021.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
-        <hutool.version>5.7.22</hutool.version>
-        <guava.version>31.1-jre</guava.version>
-        <joda-time.version>2.10.14</joda-time.version>
-        <druid.version>1.2.8</druid.version>
+
+        <!-- database -->
         <mysql.version>8.0.28</mysql.version>
+        <druid.version>1.2.8</druid.version>
+
+        <!-- orm -->
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <mybatis-plus-generator.version>3.5.1</mybatis-plus-generator.version>
         <pagehelper.version>1.4.2</pagehelper.version>
-        <easyexcel.version>3.1.0</easyexcel.version>
-        <xxl-job.version>2.3.1</xxl-job.version>
 
+        <!-- component -->
+        <xxl-job.version>2.3.1</xxl-job.version>
+        <minio.version>8.2.1</minio.version>
         <graylog.version>3.0.0</graylog.version>
+
+        <!-- base tool -->
+        <hutool.version>5.7.22</hutool.version>
+        <guava.version>31.1-jre</guava.version>
+        <easyexcel.version>3.1.0</easyexcel.version>
     </properties>
 
     <dependencies>
@@ -137,12 +142,6 @@
                 <version>${easyexcel.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>${joda-time.version}</version>
-            </dependency>
-
             <!-- 整合Graylog -->
             <dependency>
                 <groupId>de.siegmar</groupId>
@@ -156,6 +155,33 @@
                 <version>${xxl-job.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>guava</artifactId>
+                        <groupId>com.google.guava</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.magic.cube</groupId>
+                <artifactId>common-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.magic.cube</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.magic.cube</groupId>
+                <artifactId>common-cache</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -168,31 +194,6 @@
                     <skipTests>true</skipTests>
                 </configuration>
             </plugin>
-
-<!--            <plugin>-->
-<!--                <groupId>org.codehaus.mojo</groupId>-->
-<!--                <artifactId>flatten-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <updatePomFile>true</updatePomFile>-->
-<!--                    <flattenMode>resolveCiFriendliesOnly</flattenMode>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>flatten</id>-->
-<!--                        <phase>process-resources</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>flatten</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>flatten.clean</id>-->
-<!--                        <phase>clean</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>clean</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
         </plugins>
     </build>
 
