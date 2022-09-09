@@ -4,18 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.magic.cube</groupId>
-    <artifactId>magic-cube</artifactId>
+    <groupId>com.frestream</groupId>
+    <artifactId>frestream-cloud</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>magic-platform</module>
-        <module>magic-gateway</module>
-        <module>magic-auth</module>
-        <module>magic-common</module>
-        <module>magic-business</module>
-        <module>magic-api</module>
+        <module>frestream-platform</module>
+        <module>frestream-gateway</module>
+        <module>frestream-auth</module>
+        <module>frestream-common</module>
+        <module>frestream-business</module>
+        <module>frestream-api</module>
     </modules>
 
     <parent>
@@ -168,17 +168,17 @@
             </dependency>
 
             <dependency>
-                <groupId>com.magic.cube</groupId>
+                <groupId>com.frestream</groupId>
                 <artifactId>common-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.magic.cube</groupId>
+                <groupId>com.frestream</groupId>
                 <artifactId>common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.magic.cube</groupId>
+                <groupId>com.frestream</groupId>
                 <artifactId>common-cache</artifactId>
                 <version>${project.version}</version>
             </dependency>

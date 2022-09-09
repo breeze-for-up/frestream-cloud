@@ -1,1 +1,1 @@
-# magic-cube
+# frestream-cloud

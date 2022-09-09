@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: frestream-system
+  profiles:
+    active: dev
